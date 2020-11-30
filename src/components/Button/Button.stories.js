@@ -1,10 +1,23 @@
 import React from 'react';
-import Button from './Button';
+import Button from './Button.jsx';
 
-export default  {
-    title: 'button',
+export const defaultButton = (args) => <Button {...args} children='Button'/>;
+
+export default {
+    title: 'Button',
     component: Button,
-}
-
-export const Primary = () => <Button buttonType='primary'>Primary</Button>
-export const Secondary = () => <Button buttonType='secondary'>Secondary</Button>
+    argTypes: {
+        buttonType: {
+            control: {
+                type: 'select',
+                options: ['primary', 'secondary'],
+            },
+        },
+        size: {
+            control: {
+                type: 'select',
+                options: ['default', 'small', 'large'],
+            },
+        },
+    },
+};
