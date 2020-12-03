@@ -1,15 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Spinner from '../Spinner/Spinner.jsx';
 import { StyledButton } from './Styles.jsx'
 
 const Button = ({
     children,
     onClick,
-    ...rest
+    ...restProps
 }) => (
-    <StyledButton onClick={onClick} {...rest} >
-        {children}
+    <StyledButton onClick={onClick} {...restProps} >
+        {!restProps.isLoading
+            ? children
+            : (
+                <Spinner
+                    color={restProps.buttonType === 'primary' ? 'secondary' : 'primary'}
+                    size={restProps.size}
+                />
+            )
+        }
     </StyledButton>
 );
 

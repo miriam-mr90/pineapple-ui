@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button.jsx';
 
-export const defaultButton = (args) => <Button {...args} children='Button'/>;
+export const Default = (args) => <Button {...args} children='Button'/>
 
 export default {
     title: 'Button',
